@@ -9,29 +9,41 @@
         
         body
         {
-            background-color:green;
+            background-color:#ddd;
         }
 
         .ui_basic_card
         {
-            background-color:red;
+            background-color:#999;
             width:200px;
+            height:200px;
+            padding:10px;
+            box-sizing: border-box;
+            position:absolute;
+            top:0px;
+            left:0px;
+        }
+
+        .ui_section
+        {
+            background-color:#aaa;
+            width:100%;
             height:200px;
             position:absolute;
             top:0px;
             left:0px;
         }
-        </style>
 
-    <script src="script.js"></script>
+
+        </style>
     </head>
     <body>
 
-        <div id="ui_main">
+        <div id="ui_container">
 
-            <div class="ui_line"> 
+            <div class="ui_section"> 
 
-                <div class="ui_basic_card">
+                <div class="ui_basic_card" data-props='{"width":200,"height":200}'>
                     hello
                 </div>
 
@@ -68,7 +80,39 @@
                 </div>
 
             </div>
-        </div>
 
+            <div class="ui_section" style="background-color: aqua;"> 
+
+                <div class="ui_basic_card">
+                    hello
+                </div>
+
+                <div class="ui_basic_card">
+                    hello
+                </div>
+
+            </div>
+
+            <div class="ui_section" style="background-color:rosybrown"> 
+
+                <div class="ui_basic_card">
+                    hello
+                </div>
+
+                <div class="ui_basic_card">
+                    hello
+                </div>
+
+                <div class="ui_basic_card">
+                    hello
+                </div>
+
+                <div class="ui_basic_card">
+                    hello
+                </div>
+
+            </div>
+        </div>
     <body>
+    <script src="script.js"></script>
 </html>

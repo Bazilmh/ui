@@ -1,6 +1,22 @@
 
 
-cards = document.getElementsByClassName('ui_basic_card');
+
+
+var sections = document.getElementById('ui_container').children;
+var cards = [];
+
+for(var i=0;i<sections.length;i++)
+{
+
+cards[i] = sections[i].children;
+console.log(cards);
+
+}
+
+
+
+
+
 window.onload = arrange_cards;
 window.onresize = arrange_cards;
 
@@ -11,32 +27,50 @@ var gap = 10;
 
 var extra_space = 0;
 
-var _top = gap;
-var _left = gap;
+var _top = 0;
+var _left = 0;
+
 
 var el_width = 200;
 var el_height = 200;
 
+var max_height = 200;
+
+var sec_start = 0;
 
 
-for(var i=0;i<cards.length;i++)
+for(var k=0;k<sections.length;k++)
 {
 
 
-if((_left+gap+el_width) > window.innerWidth)
+sections[k].style.top = _top+"px";
+
+
+sec_start = _top;
+
+_top+=gap;
+_left+=gap;
+
+for(var i=0;i<cards[k].length;i++)
 {
+
+    if((_left+el_width+gap) > window.innerWidth)
+    {
+        
+        extra_space = window.innerWidth - _left;
+
+        console.log(extra_space);
     
-    extra_space = window.innerWidth - _left;
-    console.log(extra_space);
-
-    _top+=(el_height+gap);
-    _left=gap;
-
+        _top+=(el_height+gap);
+        
+        _left=gap;
     
-}
+    
+    }
 
-cards[i].style.top = _top+"px";
-cards[i].style.left = _left+"px";
+
+cards[k][i].style.top = (_top-sec_start)+"px";
+cards[k][i].style.left = _left+"px";
 
 _left+=(el_width+gap);
 
@@ -45,7 +79,30 @@ _left+=(el_width+gap);
 
 }
 
+_top+=el_height+gap;
+
+_left = 0;
+
+sections[k].style.height = (_top-sec_start)+"px";
+
 
 
 }
+
+
+
+}
+
+function get_props(el)
+{
+
+}
+
+function set_props(el)
+{
+    
+}
+
+
+
 
